@@ -4,5 +4,6 @@ function M.hello_world()
 end
 
 vim.api.nvim_command("command! HelloWorld lua require('myplugin').hello_world()")
+random nonsense
 
 return M
