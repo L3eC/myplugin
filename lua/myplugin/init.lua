@@ -1,9 +1,5 @@
 local M = {}
-function M.hello_world()
-	print("Hello, world!")
-end
 
-vim.api.nvim_command("command! HelloWorld lua require('myplugin').hello_world()")
-random nonsense
+vim.api.nvim_create_user_command("SayHi", 'echo "Hello World!"', {})
 
 return M
