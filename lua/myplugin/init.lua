@@ -8,12 +8,12 @@ function M.setup(path_to_known_essays)
 	if type(path_to_known_essays) ~= "string" then
 		error("put a string as the path to known essays")
 	end
-	internal_path_to_known_essays = path_to_known_essays
+	internal_path_to_known_essays = "/home/leo/.config/nvim/lua/known_essays.txt"
 end
 
 -- read the known essays
 
-io.input(internal_path_to_known_essays)
+io.input("/home/leo/.config/nvim/lua/known_essays.txt")
 
 local known_essay_dict = {}
 for line in io.lines() do
