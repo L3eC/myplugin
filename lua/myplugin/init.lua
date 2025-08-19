@@ -2,9 +2,18 @@ local popup = require("plenary.popup")
 
 local M = {}
 
+local internal_path_to_known_essays = ""
+
+function M.setup(path_to_known_essays)
+	if type(path_to_known_essays) ~= "string" then
+		error("put a string as the path to known essays")
+	end
+	internal_path_to_known_essays = path_to_known_essays
+end
+
 -- read the known essays
 
-io.input("/home/leo/.config/nvim/lua/known_essays.txt")
+io.input(internal_path_to_known_essays)
 
 local known_essay_dict = {}
 for line in io.lines() do
@@ -37,7 +46,7 @@ function M.openessaydir(path_to_dir)
 	end
 
 	if not already_have_this_essay then
-		local file,err = io.open("/home/leo/.config/nvim/lua/known_essays.txt", 'a')
+		local file,err = io.open(internal_path_to_known_essays, 'a')
 		if file then
 			table.insert(known_essay_dict, path_to_dir)
 			file:write(tostring(path_to_dir .. "\n"))
