@@ -13,7 +13,7 @@ But, one might ask, why not use a session manager?  The answer is that it's too 
 
 Put this in your lazy.nvim plugin table:
 ```
-{ "L3eC"/myplugin },
+{ "L3eC/myplugin" },
 ```
 
 and make sure to put 
