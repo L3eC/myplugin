@@ -3,22 +3,24 @@ local popup = require("plenary.popup")
 local M = {}
 
 local internal_path_to_known_essays = ""
+local known_essay_dict
 
 function M.setup(path_to_known_essays)
+	-- read the known essays
 	if type(path_to_known_essays) ~= "string" then
 		error("put a string as the path to known essays")
 	end
-	internal_path_to_known_essays = "/home/leo/.config/nvim/lua/known_essays.txt"
+
+	internal_path_to_known_essays = path_to_known_essays
+
+	io.input(internal_path_to_known_essays)
+
+	known_essay_dict = {}
+	for line in io.lines() do
+		table.insert(known_essay_dict, line)
+	end
 end
 
--- read the known essays
-
-io.input("/home/leo/.config/nvim/lua/known_essays.txt")
-
-local known_essay_dict = {}
-for line in io.lines() do
-	table.insert(known_essay_dict, line)
-end
 
 function M.openessaydir(path_to_dir)
 	vim.cmd("tabnew")
@@ -104,5 +106,7 @@ vim.api.nvim_create_user_command("EssayMenu", function(opts)
 		nargs = 0,
 	}
 )
+
+vim.keymap.set("n", "<leader>mk", M.essaymenu, {desc = "Make an essay menu"})
 
 return M
