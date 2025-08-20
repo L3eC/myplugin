@@ -23,7 +23,7 @@ essaymanager.setup("[YOUR PATH TO WHERE YOU WANT THE DIRECTORY PATHS FILE TO GO 
 ```
 in your init.lua.
 
-The default keybinding is <leader>mk to open the known essays.  It won't be configurable until I become not the only user of this plugin, in which case you can just tell me that you're using it.  Use :OpenEssayDir to open an essay directory.
+The default keybinding is \<leader\>mk to open the known essays.  It won't be configurable until I become not the only user of this plugin, in which case you can just tell me that you're using it.  Use :OpenEssayDir to open an essay directory.
 
 Please let me know if you have any questions, issues, or requests!
 
